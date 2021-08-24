@@ -1,4 +1,4 @@
-module mod
+module github.com/Spudymun/URL
 
 go 1.17
 
