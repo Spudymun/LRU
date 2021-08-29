@@ -11,11 +11,6 @@ type LRUCache struct {
 	mutex   sync.RWMutex
 }
 
-type KVPair struct {
-	key   string
-	value interface{}
-}
-
 func New(size int) *LRUCache {
 	return &LRUCache{
 		maxSize: size,
@@ -34,9 +29,7 @@ func (l *LRUCache) Get(key string) interface{} {
 		l.list.MoveFront(node)
 	}()
 
-	ele := node.Value.(*KVPair)
-
-	return ele.value
+	return node.Value
 }
 
 func (l *LRUCache) Set(key string, value interface{}) interface{} {
@@ -47,7 +40,7 @@ func (l *LRUCache) Set(key string, value interface{}) interface{} {
 		l.mutex.Lock()
 		defer l.mutex.Unlock()
 		// Update the value into node
-		node.Value.(*KVPair).value = value
+		node.Value = value
 		l.list.MoveFront(node)
 		return nil
 	}
@@ -70,7 +63,7 @@ func (l *LRUCache) Set(key string, value interface{}) interface{} {
 		return nil
 	}
 
-	return tail.Value.(*KVPair).value
+	return tail.Value
 }
 
 func (l *LRUCache) Invalidate(key string) {
@@ -84,8 +77,6 @@ func (l *LRUCache) Invalidate(key string) {
 
 	l.list.Remove(node)
 	delete(l.items, key)
-
-	return
 }
 
 func (l *LRUCache) get(key string) *Node {

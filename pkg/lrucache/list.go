@@ -19,7 +19,7 @@ type Node struct {
 	Key   string
 }
 
-// New creates a new LinkedList
+// Creates a new LinkedList
 func NewList() *DoublyLinkedList {
 	l := new(DoublyLinkedList)
 	l.root.next = &l.root

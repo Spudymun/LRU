@@ -1,4 +1,4 @@
-module github.com/Spudymun/URL
+module github.com/Spudymun/LRU
 
 go 1.17
 
