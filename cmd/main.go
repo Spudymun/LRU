@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/Spudymun/URL/pkg/lrucache"
+	"github.com/Spudymun/LRU/pkg/lrucache"
 )
 
 func main() {
