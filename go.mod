@@ -1,4 +1,4 @@
-module github.com/Spudymun/LRU
+module github.com/Spudymun/LRU-cache
 
 go 1.17
 

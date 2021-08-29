@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Spudymun/LRU/pkg/lrucache"
+	"github.com/Spudymun/LRU-cache/pkg/lrucache"
 )
 
 func main() {
