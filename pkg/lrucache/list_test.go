@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 func TestPushFront(t *testing.T) {
@@ -14,8 +13,8 @@ func TestPushFront(t *testing.T) {
 		l := NewList()
 		node := l.Unshift("key1", 5)
 
-		require.Equal(t, val, node.Value.(int))
-		require.Equal(t, val, l.Head().Value.(int))
+		assert.Equal(t, val, node.Value.(int))
+		assert.Equal(t, val, l.Head().Value.(int))
 	})
 
 	// when the list is not empty, PushFront creates a new node and sets it as the head value
