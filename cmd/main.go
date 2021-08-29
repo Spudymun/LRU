@@ -15,8 +15,12 @@ func main() {
 	n := rand.Intn(20)
 	fmt.Println("n =", n)
 	for i := 0; i <= n; i++ {
-		lru.Set(strconv.Itoa(i), rand.Int31n(20))
+		lru.Set(strconv.Itoa(i), i)
 	}
-	lru.Set(strconv.Itoa(5), rand.Int31n(20))
+	lru.Set("1", 1)
+	lru.Set("4", 1)
+	for i := 0; i <= n; i++ {
+		lru.Get(strconv.Itoa(i))
+	}
 	fmt.Println(lru)
 }

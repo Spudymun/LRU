@@ -1,6 +1,7 @@
 package lrucache
 
 import (
+	"fmt"
 	"sync"
 )
 
@@ -89,6 +90,6 @@ func (l *LRUCache) get(key string) *Node {
 	if !exists {
 		return nil
 	}
-
+	fmt.Println(node)
 	return node
 }
